@@ -27,7 +27,7 @@ PRODUCT_COPY_FILES += \
 
 # Bootsplash
 PRODUCT_COPY_FILES += \
-   device/sony/fuji-common/prebuilt/logo_X.rle:root/logo.rle
+   device/sony/fuji-common/prebuilt/sony_logo.rle:root/logo.rle
 
 # EGL config
 PRODUCT_COPY_FILES += \
