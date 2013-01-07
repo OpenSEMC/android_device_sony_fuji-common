@@ -66,7 +66,8 @@ TARGET_PROVIDES_LIBLIGHTS := true
 COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 
-# QCOM hardware
+# QCOM hardware - Fuji Board Devices have legacy status
+BOARD_USES_LEGACY_QCOM := true
 BOARD_USES_QCOM_HARDWARE := true
 
 # GPS
