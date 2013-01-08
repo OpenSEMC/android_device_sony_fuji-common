@@ -76,10 +76,6 @@
         <item>0</item>
     </integer-array>
 
-    <!-- Boolean indicating if current platform supports quick switch-on/off of
-                  Bluetooth Module -->
-    <bool name="config_bluetooth_adapter_quick_switch">false</bool>
-
     <string-array translatable="false" name="config_tether_usb_regexs">
     <item>"rndis0"</item>
     </string-array>
