@@ -175,7 +175,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SonyQualcomm8x60RIL \
-    ro.telephony.ril.v3=skipnullaid,skippinpukcount \
+    ro.telephony.ril.v3=skippinpukcount \
+    ro.telephony.call_ring.multiple=false \
     rild.libpath=/system/lib/libril-qc-qmi-1.so \
     rild.libargs=-d /dev/smd0 \
     persist.rild.nitz_plmn= \
@@ -193,7 +194,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsxpa=1 \
     ro.ril.gprsclass=10 \
     ro.use_data_netmgrd=true \
-    persist.data_netmgrd_nint=3 \
     ro.ril.transmitpower=true
 
 # Graphics
