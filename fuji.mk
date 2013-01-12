@@ -110,7 +110,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8660
+    gps.msm8660 \
+    librpc
 
 # Light
 PRODUCT_PACKAGES += \
