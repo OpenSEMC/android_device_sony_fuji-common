@@ -8,12 +8,14 @@ on init
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /storage 0550 system sdcard_r
     mkdir /storage/sdcard0 0000 system system
+    mkdir /storage/sdcard1 0000 system system
 
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
 
     export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1
 
     mkdir /mnt/usbdisk 0755 system system
 
