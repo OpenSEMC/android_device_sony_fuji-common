@@ -100,7 +100,7 @@ PRODUCT_COPY_FILES += \
 # Omx
 PRODUCT_PACKAGES += \
     libdivxdrmdecrypt \
-    libI420colorconvert \
+    libc2dcolorconvert \
     libmm-omxcore \
     libOmxCore \
     libOmxVdec \
