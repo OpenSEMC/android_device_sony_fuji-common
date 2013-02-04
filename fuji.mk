@@ -109,6 +109,7 @@ PRODUCT_PACKAGES += \
     libstagefright_client \
     libOmxQcelp13Enc \
     libOmxEvrcEnc \
+    libOmxAacEnc \
     libOmxAmrEnc
 
 # GPS
