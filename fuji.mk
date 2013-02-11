@@ -209,7 +209,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=dyn \
     debug.mdpcomp.maxlayer=3 \
     debug.mdpcomp.logs=0 \
-    ro.hwui.text_cache_width=2048
+    ro.hwui.text_cache_width=2048 \
+    debug.prerotation.disable=1 \
+    debug.egl.recordable.rgba8888=1
 
 # QCOM CpuGovernorService
 PRODUCT_PROPERTY_OVERRIDES += \
