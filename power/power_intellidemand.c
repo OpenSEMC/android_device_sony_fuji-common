@@ -12,6 +12,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * Power HAL for use with the 'Intellidemand' governor
+ * Originally written by Paul Reioux (faux123)
+ * Adapted for msm8660 chipsets by Christopher Hesse (RaymanFX)
+ * 
  */
 #include <errno.h>
 #include <string.h>
@@ -141,13 +146,8 @@ static int boostpulse_open(struct msm8660_power_module *msm8660)
 
 static void msm8660_power_set_interactive(struct power_module *module, int on)
 {
-    ALOGV("%s %s", __func__, (on ? "ON" : "OFF"));
-    if (on)
-        touch_boost();
-
     sysfs_write(SAMPLING_RATE_INTELLIDEMAND,
             on ? SAMPLING_RATE_SCREEN_ON : SAMPLING_RATE_SCREEN_OFF);
-
 }
 
 static void msm8660_power_hint(struct power_module *module, power_hint_t hint,
@@ -177,15 +177,12 @@ static void msm8660_power_hint(struct power_module *module, power_hint_t hint,
                     pthread_mutex_unlock(&msm8660->lock);
                 }
             }
-
-            ALOGV("POWER_HINT_INTERACTION");
-            touch_boost();
             break;
-#if 0
+
         case POWER_HINT_VSYNC:
             ALOGV("POWER_HINT_VSYNC %s", (data ? "ON" : "OFF"));
             break;
-#endif
+
         default:
              break;
     }
