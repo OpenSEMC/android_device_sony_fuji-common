@@ -131,6 +131,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.msm8660
 
+# Sensors - Sony DASH
+PRODUCT_PACKAGES += \
+    sensors.default
+
 # Power
 PRODUCT_PACKAGES += \
     power.msm8660
