@@ -52,10 +52,6 @@ PRODUCT_COPY_FILES += \
     device/sony/fuji-common/firmware/bcm4330.hcd:system/vendor/firmware/bcm4330.hcd \
     device/sony/fuji-common/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd
 
-# Bootsplash
-PRODUCT_COPY_FILES += \
-   device/sony/fuji-common/prebuilt/sony_logo.rle:root/logo.rle
-
 # EGL config
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/config/egl.cfg:system/lib/egl/egl.cfg
