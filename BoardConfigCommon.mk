@@ -14,6 +14,12 @@
 # limitations under the License.
 #
 
+# inherit from Sony common
+-include device/sony/common/BoardConfigCommon.mk
+
+# inherit from Sony qcom-common
+-include device/sony/qcom-common/BoardConfigCommon.mk
+
 TARGET_SPECIFIC_HEADER_PATH := device/sony/fuji-common/include
 
 TARGET_NO_BOOTLOADER := true

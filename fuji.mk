@@ -21,6 +21,9 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/sony/fuji-common/overlay
 
+# Inherit from sony qcom common
+$(call inherit-product, device/sony/qcom-common/qcom-common.mk)
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -248,3 +251,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # ALS
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.hardware.respect_als=true
+
+# Include non-opensource parts if available
+$(call inherit-product-if-exists, vendor/sony/qcom-common/common-vendor.mk)
