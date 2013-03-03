@@ -47,11 +47,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# Copy Bluetooth firmware, since BCM4329 is a BT/WiFi chip
-PRODUCT_COPY_FILES += \
-    device/sony/fuji-common/firmware/bcm4330.hcd:system/vendor/firmware/bcm4330.hcd \
-    device/sony/fuji-common/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd
-
 # EGL config
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/config/egl.cfg:system/lib/egl/egl.cfg
@@ -134,6 +129,10 @@ PRODUCT_PACKAGES += \
 # Light
 PRODUCT_PACKAGES += \
     lights.msm8660
+
+# Sensors - Sony DASH
+PRODUCT_PACKAGES += \
+    sensors.default
 
 # Power
 PRODUCT_PACKAGES += \
