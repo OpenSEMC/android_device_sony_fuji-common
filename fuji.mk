@@ -21,9 +21,6 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/sony/fuji-common/overlay
 
-# Inherit from sony qcom common
-$(call inherit-product, device/sony/qcom-common/qcom-common.mk)
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -54,19 +51,6 @@ PRODUCT_COPY_FILES += \
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/config/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh
-
-# QCOM Display
-PRODUCT_PACKAGES += \
-    copybit.msm8660 \
-    gralloc.msm8660 \
-    hwcomposer.msm8660 \
-    libgenlock \
-    libhwcexternal \
-    libhwcservice \
-    libmemalloc \
-    liboverlay \
-    libqdutils \
-    libtilerenderer
 
 # NFC Support
 PRODUCT_PACKAGES += \
@@ -103,24 +87,6 @@ PRODUCT_PACKAGES += \
     audio_policy.conf \
     libaudioutils
 
-PRODUCT_COPY_FILES += \
-    device/sony/fuji-common/config/media_codecs.xml:system/etc/media_codecs.xml
-
-# Omx
-PRODUCT_PACKAGES += \
-    libdivxdrmdecrypt \
-    libc2dcolorconvert \
-    libmm-omxcore \
-    libOmxCore \
-    libOmxVdec \
-    libOmxVenc \
-    libstagefrighthw \
-    libstagefright_client \
-    libOmxQcelp13Enc \
-    libOmxEvrcEnc \
-    libOmxAacEnc \
-    libOmxAmrEnc
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8660 \
@@ -133,10 +99,6 @@ PRODUCT_PACKAGES += \
 # Sensors - Sony DASH
 PRODUCT_PACKAGES += \
     sensors.default
-
-# Power
-PRODUCT_PACKAGES += \
-    power.msm8660
 
 # QRNGD
 PRODUCT_PACKAGES += \
@@ -190,10 +152,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
-# QC Perf
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=/system/lib/libqc-opt.so
-
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SonyQualcomm8x60RIL \
@@ -220,32 +178,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    com.qc.hardware=true \
-    debug.sf.hw=1 \
-    debug.enabletr=true \
-    debug.composition.type=dyn \
-    debug.mdpcomp.maxlayer=3 \
-    debug.mdpcomp.logs=0 \
     ro.hwui.text_cache_width=2048 \
     debug.prerotation.disable=1 \
     debug.egl.recordable.rgba8888=1
 
-# QCOM CpuGovernorService
-PRODUCT_PROPERTY_OVERRIDES += \
-    dev.pm.dyn_samplingrate=1
-
-# OpenGL ES
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=131072
-
-# Wifi
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=30
-
 # ALS
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.hardware.respect_als=true
-
-# Include non-opensource parts if available
-$(call inherit-product-if-exists, vendor/sony/qcom-common/common-vendor.mk)
