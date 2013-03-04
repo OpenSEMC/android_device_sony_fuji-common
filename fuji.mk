@@ -102,9 +102,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.msm8660
 
-# Sensors - Sony DASH
-PRODUCT_PACKAGES += \
-    sensors.default
+# Sensors - Sony DASH - Disabled for now
+#PRODUCT_PACKAGES += \
+#    sensors.default
 
 # QRNGD
 PRODUCT_PACKAGES += \
