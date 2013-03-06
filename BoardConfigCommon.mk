@@ -99,6 +99,10 @@ BOARD_HAVE_SONY_AUDIO := true
 BOARD_HAVE_BACK_MIC_CAMCORDER := true
 BOARD_USE_QCOM_LPA := true
 
+# Fuji Display
+TARGET_USES_OVERLAY := true
+TARGET_USES_SFBYBASS := true
+
 # Sony DASH flags (Dynamic Android Sensor HAL)
 SOMC_CFG_SENSORS := true
 #SOMC_CFG_SENSORS_LIGHT_LIBALS := yes
