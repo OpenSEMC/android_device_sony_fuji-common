@@ -102,6 +102,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.msm8660
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    libbt-vendor \
+    libbluedroid \
+    brcm_patchram_plus
+
+# Bluetooth vendor config
+PRODUCT_COPY_FILES += \
+    device/sony/fuji-common/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+
 # Sensors - Sony DASH - Disabled for now
 #PRODUCT_PACKAGES += \
 #    sensors.default
