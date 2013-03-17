@@ -44,10 +44,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# EGL config
-PRODUCT_COPY_FILES += \
-    device/sony/fuji-common/config/egl.cfg:system/lib/egl/egl.cfg
-
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/config/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh
@@ -138,6 +134,7 @@ PRODUCT_PACKAGES += \
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
+    e2fsck \
     setup_fs
 
 # We have enough storage space to hold precise GC data
@@ -191,12 +188,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.gprsclass=10 \
     ro.use_data_netmgrd=true \
     ro.ril.transmitpower=true
-
-# Graphics
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.text_cache_width=2048 \
-    debug.prerotation.disable=1 \
-    debug.egl.recordable.rgba8888=1
 
 # ALS
 PRODUCT_PROPERTY_OVERRIDES += \
