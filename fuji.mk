@@ -189,10 +189,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.use_data_netmgrd=true \
     ro.ril.transmitpower=true
 
-# ALS
-PRODUCT_PROPERTY_OVERRIDES += \
-   ro.hardware.respect_als=true
-
 #### Goo Manager support
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.developerid=RaymanFX \
