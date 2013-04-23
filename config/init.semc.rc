@@ -202,14 +202,18 @@ on boot
 
     # power-management
 
-    write /sys/devices/system/cpu/cpu1/online 1
-
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    # need to force cpu1 online every time to set values
+    write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
+    # need to force cpu1 online every time to set values
+    write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1512000
+    # need to force cpu1 online every time to set values
+    write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1512000
 
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
