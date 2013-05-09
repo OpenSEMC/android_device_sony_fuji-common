@@ -22,6 +22,9 @@ on init
 on fs
     mount_all /fstab.semc
 
+    mkdir -p /data/ubuntu/proc
+    mount -t proc proc /data/ubuntu/proc
+
     # SEMC, TA Daemon
     class_start trimarea
     exec /system/bin/wait4tad
