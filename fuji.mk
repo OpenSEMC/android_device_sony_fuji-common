@@ -44,6 +44,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
+# EGL config
+PRODUCT_COPY_FILES += \
+    device/sony/fuji-common/config/egl.cfg:system/lib/egl/egl.cfg
+
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/config/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh
