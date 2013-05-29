@@ -111,6 +111,10 @@ PRODUCT_PACKAGES += \
     libaudioutils
     #audio_policy.conf
 
+# Camera wrapper
+PRODUCT_PACKAGES += \
+    camera.fuji
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8660 \
