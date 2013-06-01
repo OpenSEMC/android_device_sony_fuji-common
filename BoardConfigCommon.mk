@@ -14,14 +14,19 @@
 # limitations under the License.
 #
 
+# inherit from Sony common
+-include device/sony/common/BoardConfigCommon.mk
+
+# inherit from qcom-common
+-include device/sony/qcom-common/BoardConfigCommon.mk
+
 TARGET_SPECIFIC_HEADER_PATH := device/sony/fuji-common/include
 
 # Kernel properties
 TARGET_KERNEL_SOURCE := kernel/sony/msm8x60
-#BOARD_USES_UNCOMPRESSED_BOOT := true
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 
 # Platform
+TARGET_BOOTLOADER_BOARD_NAME := MSM8660
 TARGET_BOARD_PLATFORM := msm8660
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
@@ -31,6 +36,7 @@ BOARD_VENDOR := sony
 # Architecture
 TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_BOOTLOADER_BOARD_NAME := fuji
+TARGET_VENDOR_PLATFORM := fuji
 
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
@@ -62,13 +68,12 @@ WIFI_DRIVER_FW_PATH_P2P          := "/vendor/firmware/fw_bcmdhd_p2p.bin"
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
 BOARD_LEGACY_NL80211_STA_EVENTS  := true
 
-CAMERA_USES_SURFACEFLINGER_CLIENT_STUB := true
-
-TARGET_PROVIDES_LIBLIGHT := true
-
 # Camera
 COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
 BOARD_NEEDS_MEMORYHEAPPMEM := true
+
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
 
 # GPS
 BOARD_USES_QCOM_GPS := true
@@ -76,7 +81,6 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := semc
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # Bluetooth
-BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
 TARGET_CUSTOM_BLUEDROID := ../../../device/sony/fuji-common/bluedroid/bluetooth.c
@@ -96,24 +100,9 @@ BOARD_HAVE_SONY_AUDIO := true
 BOARD_HAVE_BACK_MIC_CAMCORDER := true
 BOARD_USE_QCOM_LPA := true
 
-# Fuji Display
-TARGET_USES_OVERLAY := true
-TARGET_USES_SFBYBASS := true
-
-# Sony DASH flags (Dynamic Android Sensor HAL)
-#SOMC_CFG_SENSORS := true
-#SOMC_CFG_SENSORS_LIGHT_AS3676 := yes
-#SOMC_CFG_SENSORS_GYRO_MPU3050 := yes
-#SOMC_CFG_SENSORS_PROXIMITY_APDS9702 := yes
-#SOMC_CFG_SENSORS_ACCEL_BMA250NA_INPUT := yes
-#SOMC_CFG_SENSORS_COMPASS_AK8972 := yes
-
-# Light Sensor
-BOARD_SYSFS_LIGHT_SENSOR := /sys/class/leds/lcd-backlight/als/enable
-
 # FM radio
-COMMON_GLOBAL_CFLAGS += -DSTE_FM
-BOARD_USES_STE_FMRADIO := true
+#COMMON_GLOBAL_CFLAGS += -DSTE_FM
+#BOARD_USES_STE_FMRADIO := true
 
 #TWRP
 DEVICE_RESOLUTION := 720x1280
@@ -121,4 +110,14 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_REAL_SDCARD := true
 TW_NO_USB_STORAGE := true
 
-TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=cortex-a9,$(call cc-option,-mtune=cortex-a8)) $(call cc-option,-mcpu=cortex-a9,$(call cc-option,-mcpu=cortex-a8))
+# Sensors
+SOMC_CFG_SENSORS := true
+SOMC_CFG_SENSORS_LIGHT_AS3676 := yes
+SOMC_CFG_SENSORS_LIGHT_AS3676_MAXRANGE := 13000
+SOMC_CFG_SENSORS_GYRO_MPU3050 := yes
+SOMC_CFG_SENSORS_PROXIMITY_APDS9702 := yes
+SOMC_CFG_SENSORS_ACCEL_BMA250NA_INPUT := yes
+SOMC_CFG_SENSORS_COMPASS_AK8972 := yes
+
+# inherit from fuji-common
+-include vendor/sony/fuji-common/BoardConfigCommon.mk

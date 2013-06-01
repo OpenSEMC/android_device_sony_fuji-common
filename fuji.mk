@@ -19,6 +19,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
+# qcom common
+$(call inherit-product, device/sony/qcom-common/qcom-common.mk)
+
 DEVICE_PACKAGE_OVERLAYS += device/sony/fuji-common/overlay
 
 # Permissions
@@ -44,9 +47,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# EGL config
-PRODUCT_COPY_FILES += \
-    device/sony/fuji-common/config/egl.cfg:system/lib/egl/egl.cfg
+# FM Radio
+#PRODUCT_COPY_FILES += \
+#    frameworks/native/data/etc/com.stericsson.hardware.fm.receiver.xml:system/etc/permissions/com.stericsson.hardware.fm.receiver.xml
+
+#PRODUCT_PACKAGES += \
+#    FmRadio
 
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
@@ -112,17 +118,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
-# Sensors - Sony DASH - Disabled for now
-#PRODUCT_PACKAGES += \
-#    sensors.default
-
-# QRNGD
+# Sensors
 PRODUCT_PACKAGES += \
-    qrngd
+    sensors.default
 
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
+
+# Recovery
+PRODUCT_PACKAGES += \
+    extract_elf_ramdisk
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
@@ -195,3 +201,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.board=$(subst full_,,$(TARGET_PRODUCT)) \
     ro.goo.rom=opensemc_cm \
     ro.goo.version=$(shell date +%s)
+
+# Graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hwui.text_cache_width=2048
+
+# Include non-opensource parts if available
+$(call inherit-product-if-exists, vendor/sony/fuji-common/common-vendor.mk)
