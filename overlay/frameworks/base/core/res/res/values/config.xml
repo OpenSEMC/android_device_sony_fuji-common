@@ -182,6 +182,14 @@
     <!--<bool name="config_autoBrightnessButtonKeyboard">false</bool> -->
 
     <bool name="config_ui_enableFadingMarquee">false</bool>
+    
+    <!-- Enable Google Network Location Services -->
+    <string-array name="config_locationProviderPackageNames" translatable="false">
+        <!-- The standard AOSP fused location provider -->
+        <item>com.android.location.fused</item>
+        <!-- The Google Network Location Services location provider -->
+        <item>com.google.android.location</item>
+    </string-array>
 
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">6</integer>
