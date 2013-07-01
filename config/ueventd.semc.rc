@@ -28,6 +28,13 @@
 # the DIAG device node is not world writable/readable.
 /dev/diag                 0660   system     qcom_diag
 
+# LED permissions
+/sys/devices/i2c-3/3-0040/leds/lcd-backlight als/enable 0600 system system
+/sys/devices/i2c-3/3-0040/leds/* delay_on   0600 system system
+/sys/devices/i2c-3/3-0040/leds/* delay_off  0600 system system
+/sys/devices/i2c-3/3-0040/leds/* brightness 0600 system system
+/sys/devices/i2c-3/3-0040/leds/* trigger    0600 system system
+
 # TODO: not sure if we need this..
 /dev/msm_vpe_standalone              0777   system     system
 
