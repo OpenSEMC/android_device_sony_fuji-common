@@ -87,9 +87,9 @@ PRODUCT_COPY_FILES += \
 # FM Radio
 #PRODUCT_PACKAGES += \
 #      FmRadioReceiver
-
-PRODUCT_COPY_FILES += \
-      frameworks/native/data/etc/com.stericsson.hardware.fm.receiver.xml:system/etc/permissions/com.stericsson.hardware.fm.receiver.xml
+#
+#PRODUCT_COPY_FILES += \
+#      frameworks/native/data/etc/com.stericsson.hardware.fm.receiver.xml:system/etc/permissions/com.stericsson.hardware.fm.receiver.xml
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -163,13 +163,21 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/config/thermald-semc.conf:system/etc/thermald-semc.conf
 
+# Xperia Settings (sony-common)
+PRODUCT_PACKAGES += \
+    XperiaSettings
+
+# Extract recovery ramdisks (sony-common)
+PRODUCT_PACKAGES += \
+    extract_elf_ramdisk
+
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=SonyQualcomm8x60RIL \
+    ro.telephony.ril_class=SonyQualcommRIL \
     ro.telephony.ril.v3=skippinpukcount \
     ro.telephony.call_ring.multiple=false \
     rild.libpath=/system/lib/libril-qc-qmi-1.so \
