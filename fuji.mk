@@ -121,9 +121,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
-# Sensors
-PRODUCT_PACKAGES += \
-    sensors.default
+# Sensors - (disabled for now)
+#PRODUCT_PACKAGES += \
+#    sensors.default
 
 # Misc
 PRODUCT_PACKAGES += \
