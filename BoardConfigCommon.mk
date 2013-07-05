@@ -20,8 +20,6 @@
 # inherit from qcom-common
 -include device/sony/qcom-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/sony/fuji-common/include
-
 # Kernel properties
 TARGET_KERNEL_SOURCE := kernel/sony/msm8x60
 
