@@ -68,6 +68,8 @@ WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/firmware/fw_bcm4330b2_p2p.bin"
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
+# Legacy define
+TARGET_PROVIDES_LIBLIGHTS := true
 
 # GPS
 BOARD_USES_QCOM_GPS := true
