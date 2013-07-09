@@ -220,7 +220,7 @@ on boot
     chown system camera /sys/devices/i2c-3/3-0053/privacy_enable
     chown system camera /sys/devices/i2c-3/3-0053/privacy_current
     chown system camera /sys/devices/i2c-3/3-0053/flash_enable
-    chown system camara /sys/devices/i2c-3/3-0053/flash_duration
+    chown system camera /sys/devices/i2c-3/3-0053/flash_duration
     chown system camera /sys/devices/i2c-3/3-0053/flash_synchronization
     chown system camera /sys/devices/i2c-3/3-0053/flash_current
     chown system camera /sys/devices/i2c-3/3-0053/status
