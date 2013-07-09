@@ -93,8 +93,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio_policy.msm8660 \
-    audio.primary.msm8660 \
-    audio_policy.conf
+    audio.primary.msm8660
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -146,6 +145,10 @@ PRODUCT_COPY_FILES += \
     device/sony/fuji-common/config/init.semc.rc:root/init.semc.rc \
     device/sony/fuji-common/config/init.fixbt.sh:system/etc/init.fixbt.sh \
     device/sony/fuji-common/config/ueventd.semc.rc:root/ueventd.semc.rc
+
+# Audio policy config
+PRODUCT_COPY_FILES += \
+    device/sony/fuji-common/config/audio_policy.conf:system/etc/audio_policy.conf
 
 # Post recovery script
 PRODUCT_COPY_FILES += \
