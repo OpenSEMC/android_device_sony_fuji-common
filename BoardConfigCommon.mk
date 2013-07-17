@@ -33,15 +33,21 @@ BOARD_VENDOR := sony
 
 # Architecture
 TARGET_ARCH := arm
-TARGET_CPU_ABI := cortex-a9
+TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_BOOTLOADER_BOARD_NAME := fuji
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_VARIANT := cortex-a9
 TARGET_VENDOR_PLATFORM := fuji
 
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
+
+# Compiler Optimization
+ARCH_ARM_HIGH_OPTIMIZATION := true
 
 # Scorpion optimizations
 TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
