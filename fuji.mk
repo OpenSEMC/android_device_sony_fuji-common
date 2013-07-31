@@ -46,9 +46,6 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_COPY_FILES += \
 #    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
-#PRODUCT_PACKAGES += \
-#    FmRadio
-
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/rootdir/system/etc/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh
@@ -101,13 +98,6 @@ else
 endif
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
-
-# FM Radio
-#PRODUCT_PACKAGES += \
-#      FmRadioReceiver
-#
-#PRODUCT_COPY_FILES += \
-#      frameworks/native/data/etc/com.stericsson.hardware.fm.receiver.xml:system/etc/permissions/com.stericsson.hardware.fm.receiver.xml
 
 # Audio
 PRODUCT_PACKAGES += \

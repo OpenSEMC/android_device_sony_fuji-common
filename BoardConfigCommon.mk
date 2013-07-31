@@ -132,24 +132,11 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/sony/fuji-common
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
-# FM radio
-#COMMON_GLOBAL_CFLAGS += -DSTE_FM
-#BOARD_USES_STE_FMRADIO := true
-
 # TWRP
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_REAL_SDCARD := true
 TW_NO_USB_STORAGE := true
-
-# Sensors - (disabled for now)
-#SOMC_CFG_SENSORS := true
-#SOMC_CFG_SENSORS_LIGHT_AS3676 := yes
-#SOMC_CFG_SENSORS_LIGHT_AS3676_MAXRANGE := 13000
-#SOMC_CFG_SENSORS_GYRO_MPU3050 := yes
-#SOMC_CFG_SENSORS_PROXIMITY_APDS9702 := yes
-#SOMC_CFG_SENSORS_ACCEL_BMA250NA_INPUT := yes
-#SOMC_CFG_SENSORS_COMPASS_AK8972 := yes
 
 # inherit from fuji-common
 -include vendor/sony/fuji-common/BoardConfigCommon.mk
