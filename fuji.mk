@@ -16,9 +16,6 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# qcom common
-$(call inherit-product, device/sony/qcom-common/qcom-common.mk)
-
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
@@ -56,11 +53,34 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/rootdir/system/etc/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh
 
+# Common Fuji media codecs
+PRODUCT_COPY_FILES += \
+    device/sony/fuji-common/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml
+
 # QCOM Display
 PRODUCT_PACKAGES += \
     copybit.msm8660 \
     gralloc.msm8660 \
-    hwcomposer.msm8660
+    hwcomposer.msm8660 \
+    libgenlock \
+    libmemalloc \
+    liboverlay \
+    libqdutils
+
+# Omx
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libdivxdrmdecrypt \
+    libmm-omxcore \
+    libOmxCore \
+    libOmxVdec \
+    libOmxVenc \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libstagefrighthw \
+    libOmxQcelp13Enc \
+    libOmxEvrcEnc \
+    libOmxAmrEnc
 
 # NFC Support
 PRODUCT_PACKAGES += \
@@ -208,9 +228,41 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.rom=opensemc_cm \
     ro.goo.version=$(shell date +%s)
 
+# QCOM
+PRODUCT_PROPERTY_OVERRIDES += \
+    com.qc.hardware=true
+
+# QC Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=/system/lib/libqc-opt.so
+
+# Qualcomm random numbers generated
+PRODUCT_PACKAGES += qrngd
+
+# OpenGL ES
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=131072
+
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.egl.hw=1 \
+    debug.sf.hw=1 \
+    debug.enabletr=true \
+    debug.mdpcomp.maxlayer=3 \
+    debug.mdpcomp.logs=0
+
+# More display props - double check these!
+PRODUCT_PROPERTY_OVERRIDES += \
+    dev.pm.dyn_samplingrate=1
+
+# Custom cache size
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_cache_width=2048
+
+# Wifi
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15
 
 # Include non-opensource parts if available
 $(call inherit-product-if-exists, vendor/sony/fuji-common/common-vendor.mk)

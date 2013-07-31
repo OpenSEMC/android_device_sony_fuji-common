@@ -18,6 +18,7 @@
 <resources>
     <!-- Camera Preferences Video Quality entries -->
     <string-array name="pref_video_quality_entries" translatable="false">
+        <item>@string/pref_video_quality_entry_1080p</item>
         <item>@string/pref_video_quality_entry_720p</item>
         <item>@string/pref_video_quality_entry_480p</item>
         <item>@string/pref_video_quality_entry_high</item>
@@ -25,6 +26,8 @@
    </string-array>
 
     <string-array name="pref_video_quality_entryvalues" translatable="false">
+        <!-- The integer value of CamcorderProfile.QUALITY_1080P -->
+        <item>@string/pref_video_quality_default</item>
         <!-- The integer value of CamcorderProfile.QUALITY_720P -->
         <item>@string/pref_video_quality_default</item>
         <!-- The integer value of CamcorderProfile.QUALITY_480P -->
@@ -67,5 +70,99 @@
         <item>1024x768</item>
         <item>640x480</item>
         <item>320x240</item>
+    </string-array>
+
+    <!-- Prefered camera scenemodes -->
+    <string-array name="pref_camera_scenemode_entries" translatable="false">
+        <item>@string/pref_camera_scenemode_entry_auto</item>
+        <item>@string/pref_camera_scenemode_entry_action</item>
+        <item>@string/pref_camera_scenemode_entry_night</item>
+        <item>@string/pref_camera_scenemode_entry_nightportrait</item>
+        <item>@string/pref_camera_scenemode_entry_nightindoor</item>
+        <item>@string/pref_camera_scenemode_entry_supernight</item>
+        <item>@string/pref_camera_scenemode_entry_sunset</item>
+        <item>@string/pref_camera_scenemode_entry_party</item>
+        <item>@string/pref_camera_scenemode_entry_duskdawn</item>
+        <item>@string/pref_camera_scenemode_entry_candlelight</item>
+        <item>@string/pref_camera_scenemode_entry_fallcolor</item>
+        <item>@string/pref_camera_scenemode_entry_closeup</item>
+        <item>@string/pref_camera_scenemode_entry_landscape</item>
+        <item>@string/pref_camera_scenemode_entry_aqua</item>
+        <item>@string/pref_camera_scenemode_entry_sports</item>
+        <item>@string/pref_camera_scenemode_entry_mood</item>
+        <item>@string/pref_camera_scenemode_entry_fireworks</item>
+        <item>@string/pref_camera_scenemode_entry_cine</item>
+        <item>@string/pref_camera_scenemode_entry_oldfilm</item>
+        <item>@string/pref_camera_scenemode_entry_beach</item>
+        <item>@string/pref_camera_scenemode_entry_portrait</item>
+        <item>@string/pref_camera_scenemode_entry_snow</item>
+        <item>@string/pref_camera_scenemode_entry_steadyphoto</item>
+        <item>@string/pref_camera_scenemode_entry_theatre</item>
+        <item>@string/pref_camera_scenemode_entry_backlight</item>
+        <item>@string/pref_camera_scenemode_entry_backlightportrait</item>
+        <item>@string/pref_camera_scenemode_entry_document</item>
+        <item>@string/pref_camera_scenemode_entry_barcode</item>
+        <item>@string/pref_camera_scenemode_entry_text</item>
+        <item>@string/pref_camera_scenemode_entry_beauty</item>
+        <item>@string/pref_camera_scenemode_entry_flowers</item>
+        <item>@string/pref_camera_scenemode_entry_whiteboard</item>
+        <item>@string/pref_camera_scenemode_entry_backgroundblur</item>
+        <item>@string/pref_camera_scenemode_entry_sweepstitch</item>
+        <item>@string/pref_camera_scenemode_entry_dark</item>
+        <item>@string/pref_camera_scenemode_entry_dish</item>
+        <item>@string/pref_camera_scenemode_entry_pet</item>
+        <item>@string/pref_camera_scenemode_entry_baby</item>
+        <item>@string/pref_camera_scenemode_entry_spotlight</item>
+        <item>@string/pref_camera_scenemode_entry_softskin</item>
+        <item>@string/pref_camera_scenemode_entry_antimotionblur</item>
+        <item>@string/pref_camera_scenemode_entry_handheldtwilight</item>
+        <item>@string/pref_camera_scenemode_entry_highsensitivity</item>
+    </string-array>
+
+    <!-- Corresponding entry values -->
+    <string-array name="pref_camera_scenemode_entryvalues" translatable="false">
+        <item>auto</item>
+        <item>action</item>
+        <item>night</item>
+        <item>night-portrait</item>
+        <item>night-indoor</item>
+        <item>super-night</item>
+        <item>sunset</item>
+        <item>party</item>
+        <item>dusk-dawn</item>
+        <item>candlelight</item>
+        <item>fall-color</item>
+        <item>closeup</item>
+        <item>landscape</item>
+        <item>aqua</item>
+        <item>sports</item>
+        <item>mood</item>
+        <item>fireworks</item>
+        <item>cine</item>
+        <item>old-film</item>
+        <item>beach</item>
+        <item>portrait</item>
+        <item>snow</item>
+        <item>steadyphoto</item>
+        <item>theatre</item>
+        <item>backlight</item>
+        <item>backlight-portrait</item>
+        <item>document</item>
+        <item>barcode</item>
+        <item>text</item>
+        <item>beauty-mode</item>
+        <item>flowers</item>
+        <item>white-board</item>
+        <item>background-blur</item>
+        <item>sweep-stitch</item>
+        <item>dark</item>
+        <item>dish</item>
+        <item>pet</item>
+        <item>baby</item>
+        <item>spot-light</item>
+        <item>soft-skin</item>
+        <item>anti-motion-blur</item>
+        <item>handheld-twilight</item>
+        <item>high-sensitivity</item>
     </string-array>
 </resources>

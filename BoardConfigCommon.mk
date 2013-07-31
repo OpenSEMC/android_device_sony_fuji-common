@@ -17,22 +17,34 @@
 # inherit from Sony common
 -include device/sony/common/BoardConfigCommon.mk
 
-# inherit from qcom-common
--include device/sony/qcom-common/BoardConfigCommon.mk
-
 # Kernel properties
 TARGET_KERNEL_SOURCE := kernel/sony/msm8x60
+
+# QCOM hardware
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+BOARD_USES_QCOM_HARDWARE := true
 
 # Platform
 TARGET_BOOTLOADER_BOARD_NAME := MSM8660
 TARGET_BOARD_PLATFORM := msm8660
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
+# Board
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+BOARD_HAS_NO_MISC_PARTITION := true
+
 # Vendor
 BOARD_VENDOR := sony
 
 # Architecture
+TARGET_ARCH := arm
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_SMP := true
 TARGET_ARCH_VARIANT_CPU := cortex-a9
+
 TARGET_BOOTLOADER_BOARD_NAME := fuji
 TARGET_VENDOR_PLATFORM := fuji
 
@@ -66,10 +78,33 @@ WIFI_DRIVER_FW_PATH_AP           := "/system/etc/firmware/fw_bcm4330b2_apsta.bin
 WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/firmware/fw_bcm4330b2_p2p.bin"
 #BOARD_LEGACY_NL80211_STA_EVENTS  := true
 
+# Audio
+TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_USES_QCOM_COMPRESSED_AUDIO := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_ACDB_ENABLED -DQCOM_VOIP_ENABLED
+BOARD_HAVE_SONY_AUDIO := true
+BOARD_HAVE_BACK_MIC_CAMCORDER := true
+BOARD_USE_QCOM_LPA := true
+
+# Graphics
+TARGET_QCOM_DISPLAY_VARIANT := legacy
+TARGET_USES_ION := true
+TARGET_USES_C2D_COMPOSITION := true
+#TARGET_NO_HW_VSYNC := true
+USE_OPENGL_RENDERER := true
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 # Legacy define
 TARGET_PROVIDES_LIBLIGHTS := true
+
+# Power HAL
+TARGET_PROVIDES_POWERHAL := true
+
+# Camera
+TARGET_PROVIDES_CAMERA_HAL := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP_CAMERA_ABI_HACK -DMR0_CAMERA_BLOB
+COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 
 # GPS
 BOARD_USES_QCOM_GPS := true
@@ -77,10 +112,15 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := semc
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # Bluetooth
+BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
 TARGET_CUSTOM_BLUEDROID := ../../../device/sony/fuji-common/bluedroid/bluetooth.c
 BOARD_BLUEDROID_VENDOR_CONF := device/sony/fuji-common/bluetooth/vnd_msm8660.txt
+
+# Webkit
+ENABLE_WEBGL := true
+TARGET_FORCE_CPU_UPLOAD := true
 
 # Custom boot
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
@@ -91,12 +131,6 @@ BOARD_CUSTOM_BOOTIMG_MK := device/sony/fuji-common/custombootimg.mk
 TARGET_RELEASETOOLS_EXTENSIONS := device/sony/fuji-common
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
-
-# Audio
-COMMON_GLOBAL_CFLAGS += -DQCOM_ACDB_ENABLED -DQCOM_VOIP_ENABLED
-BOARD_HAVE_SONY_AUDIO := true
-BOARD_HAVE_BACK_MIC_CAMCORDER := true
-BOARD_USE_QCOM_LPA := true
 
 # FM radio
 #COMMON_GLOBAL_CFLAGS += -DSTE_FM
