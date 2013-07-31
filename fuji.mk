@@ -192,7 +192,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SonyQualcommRIL \
-    ro.telephony.ril.v3=skippinpukcount \
+    ro.telephony.ril.v3=skippinpukcount,qcomdsds \
     ro.telephony.call_ring.multiple=false \
     persist.rild.nitz_plmn= \
     persist.rild.nitz_long_ons_0= \
