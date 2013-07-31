@@ -118,6 +118,10 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_PACKAGES += \
 #    sensors.default
 
+# Power HAL
+PRODUCT_PACKAGES += \
+    power.fuji
+
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
