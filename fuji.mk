@@ -60,6 +60,8 @@ PRODUCT_PACKAGES += \
     gralloc.msm8660 \
     hwcomposer.msm8660 \
     libgenlock \
+    libhwcexternal \
+    libhwcservice \
     libmemalloc \
     liboverlay \
     libqdutils
