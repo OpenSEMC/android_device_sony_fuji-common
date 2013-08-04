@@ -129,7 +129,7 @@ TARGET_RECOVERY_PRE_COMMAND := "touch /cache/recovery/boot;sync;"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/fuji-common/custombootimg.mk
 
 # AOSP releasetools extensions
-TARGET_RELEASETOOLS_EXTENSIONS := device/sony/fuji-common
+#TARGET_RELEASETOOLS_EXTENSIONS := device/sony/fuji-common
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
