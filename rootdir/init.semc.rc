@@ -389,7 +389,7 @@ service ta_rmt_service /system/bin/ta_rmt_service
     #   user wifi
     #   group wifi inet keystore
 #    class main
-#    socket wpa_wlan0 dgram 660 wifi wifi
+#    socket wpa_wlan0 dgram 0660 wifi wifi u:object_r:wpa_socket:s0
 #    disabled
 #    oneshot
 
@@ -400,7 +400,7 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     #   user wifi
     #   group wifi inet keystore
     class main
-    socket wpa_wlan0 dgram 660 wifi wifi
+    socket wpa_wlan0 dgram 0660 wifi wifi u:object_r:wpa_socket:s0
     disabled
     oneshot
 
