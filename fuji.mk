@@ -60,26 +60,26 @@ PRODUCT_PACKAGES += \
     gralloc.msm8660 \
     hwcomposer.msm8660 \
     libgenlock \
-    libhwcexternal \
-    libhwcservice \
     libmemalloc \
     liboverlay \
-    libqdutils
+    libqdutils \
+    libtilerenderer \
+    libI420colorconvert
 
 # Omx
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libmm-omxcore \
-    libOmxCore \
-    libOmxVdec \
-    libOmxVenc \
     libOmxAacEnc \
     libOmxAmrEnc \
-    libstagefrighthw \
-    libOmxQcelp13Enc \
+    libOmxCore \
     libOmxEvrcEnc \
-    libOmxAmrEnc
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libc2dcolorconvert \
+    libdashplayer \
+    libdivxdrmdecrypt \
+    libmm-omxcore \
+    libstagefrighthw
 
 # NFC Support
 PRODUCT_PACKAGES += \
