@@ -247,6 +247,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1
 
+# Low Power Audio Decoding
+PRODUCT_PROPERTY_OVERRIDES += \
+    lpa.decode=true
+
 # Custom cache size
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_cache_width=2048
