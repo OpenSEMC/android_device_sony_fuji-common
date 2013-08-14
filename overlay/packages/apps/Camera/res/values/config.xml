@@ -15,12 +15,7 @@
 -->
 
 <resources>
-     <!-- Use ZSL mode -->
-    <bool name="enableZSL">false</bool>
 
     <!-- Enable focus mode selection -->
     <bool name="wantsFocusModes">true</bool>
-
-    <!-- Video HDR parameter -->
-    <string name="videoHdrParam">sony-video-hdr</string>
 </resources>
