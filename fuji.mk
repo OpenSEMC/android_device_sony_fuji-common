@@ -105,7 +105,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio_policy.msm8660 \
-    audio.primary.msm8660
+    audio.primary.msm8660 \
+    audio.usb.default
+    #audio_policy.conf
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -125,10 +127,6 @@ PRODUCT_PACKAGES += \
 # Bluetooth vendor config
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
-
-# Sensors - (disabled for now)
-#PRODUCT_PACKAGES += \
-#    sensors.default
 
 # Power HAL
 PRODUCT_PACKAGES += \
@@ -237,20 +235,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.enabletr=true \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
-    debug.enabletr=true \
-    debug.mdpcomp.maxlayer=3 \
+    debug.composition.type=dyn \
+    dev.pm.dyn_samplingrate=1 \
+    debug.mdpcomp.maxlayer=0 \
     debug.mdpcomp.logs=0
 
 # More display props - double check these!
-PRODUCT_PROPERTY_OVERRIDES += \
-    dev.pm.dyn_samplingrate=1 \
-    debug.hwc.dynThreshold=1.9
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    dev.pm.dyn_samplingrate=1 \
+#    debug.hwc.dynThreshold=1.9
 
 # Low Power Audio Decoding
-PRODUCT_PROPERTY_OVERRIDES += \
-    lpa.decode=true
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    lpa.decode=true
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
