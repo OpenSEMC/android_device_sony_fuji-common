@@ -1,7 +1,9 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
  * Copyright (C) 2011 Diogo Ferreira <defer@cyanogenmod.com>
- * Copyright (C) 2011 The CyanogenMod Project <http://www.cyanogenmod.com>
+ * Copyright (C) 2012 Andreas Makris <andreas.makris@gmail.com>
+ * Copyright (C) 2012 The CyanogenMod Project <http://www.cyanogenmod.com>
+ * Copyright (C) 2013 Christopher N. Hesse <raymanfx@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +18,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "lights.sony"
+#define LOG_TAG "lights.semc"
 
 #include <cutils/log.h>
 #include <stdint.h>
@@ -40,6 +42,8 @@ static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 
+static int g_backlight = 255;
+
 /* The leds we have */
 enum {
 	LED_RED,
@@ -47,6 +51,32 @@ enum {
 	LED_BLUE,
 	LED_BLANK
 };
+
+enum {
+	MANUAL = 0,
+	AUTOMATIC,
+	MANUAL_SENSOR
+};
+
+
+static int read_int (const char *path) {
+  int fd;
+  char buffer[20];
+
+  fd = open(path, O_RDONLY);
+  if (fd < 0) {
+    return -1;
+  }
+
+  int cnt = read(fd, buffer, 20);
+  close(fd);
+
+  if(cnt > 0) {
+    return atoi(buffer);
+  }
+  return -1;
+}
+
 
 static int write_int (const char *path, int value) {
 	int fd;
@@ -90,6 +120,7 @@ static int write_string (const char *path, const char *value) {
 	return written == -1 ? -errno : 0;
 }
 
+
 /* Color tools */
 static int is_lit (struct light_state_t const* state) {
 	return state->color & 0x00ffffff;
@@ -103,24 +134,41 @@ static int rgb_to_brightness (struct light_state_t const* state) {
 
 /* The actual lights controlling section */
 static int set_light_backlight (struct light_device_t *dev, struct light_state_t const *state) {
-	int err = 0;
 	int brightness = rgb_to_brightness(state);
+	int als_mode;
+	size_t i;
 
-	ALOGV("%s brightness=%d", __func__, brightness);
+	switch (state->brightnessMode) {
+		case BRIGHTNESS_MODE_SENSOR:
+			als_mode = AUTOMATIC;
+			break;
+		case BRIGHTNESS_MODE_USER:
+			als_mode = BRIGHTNESS_MODE_USER;
+			break;
+		default:
+			als_mode = MANUAL_SENSOR;
+			break;
+	}
+
+	ALOGV("%s brightness=%d color=0x%08x", __func__,brightness,state->color);
 	pthread_mutex_lock(&g_lock);
-	err = write_int (LCD_BACKLIGHT_FILE, brightness);
+	g_backlight = brightness;
+	write_int (ALS_FILE, als_mode);
+	write_int (LCD_BACKLIGHT_FILE, brightness);
+	for (i = 0; i < sizeof(BUTTON_BACKLIGHT_FILE)/sizeof(BUTTON_BACKLIGHT_FILE[0]); i++) {
+	  write_int (BUTTON_BACKLIGHT_FILE[i], brightness);
+	}
 	pthread_mutex_unlock(&g_lock);
-
-	return err;
+	return 0;
 }
 
 static int set_light_buttons (struct light_device_t *dev, struct light_state_t const* state) {
-	size_t i = 0;
+	size_t i;
 	int on = is_lit(state);
 	pthread_mutex_lock(&g_lock);
 
 	for (i = 0; i < sizeof(BUTTON_BACKLIGHT_FILE)/sizeof(BUTTON_BACKLIGHT_FILE[0]); i++) {
-		write_int (BUTTON_BACKLIGHT_FILE[i], on ? rgb_to_brightness(state) : 0);
+		write_int (BUTTON_BACKLIGHT_FILE[i],on?255:0);
 	}
 
 	pthread_mutex_unlock(&g_lock);
@@ -130,26 +178,16 @@ static int set_light_buttons (struct light_device_t *dev, struct light_state_t c
 
 static void set_shared_light_locked (struct light_device_t *dev, struct light_state_t *state) {
 	int r, g, b;
-	int delayOn, delayOff;
+	int delayOn,delayOff;
 
-        /* fix some color */
-        ALOGV("color 0x%x", state->color);
+	r = ((state->color >> 16) & 0xFF) / 8;
+	g = ((state->color >> 8) & 0xFF) / 8;
+	b = ((state->color) & 0xFF) / 8;
 
-        if (state->color == 0xffffff)        // white (default)
-               state->color = 0x80ff80;      // make it less purple
-        else if (state->color == 0xffffff00) // orange (charge)
-               state->color = 0xff3000;      // make it like stock rom
-
-	r = (state->color >> 16) & 0xFF;
-	g = (state->color >> 8) & 0xFF;
-	b = (state->color) & 0xFF;
-
-	delayOn = state->flashOnMS;
+        delayOn = state->flashOnMS;
 	delayOff = state->flashOffMS;
 
-	switch (state->flashMode) {
-	case LIGHT_FLASH_TIMED:
-	case LIGHT_FLASH_HARDWARE:
+	if (state->flashMode != LIGHT_FLASH_NONE) {
 		write_string (RED_LED_FILE_TRIGGER, "timer");
 		write_string (GREEN_LED_FILE_TRIGGER, "timer");
 		write_string (BLUE_LED_FILE_TRIGGER, "timer");
@@ -161,18 +199,30 @@ static void set_shared_light_locked (struct light_device_t *dev, struct light_st
 		write_int (RED_LED_FILE_DELAYOFF, delayOff);
 		write_int (GREEN_LED_FILE_DELAYOFF, delayOff);
 		write_int (BLUE_LED_FILE_DELAYOFF, delayOff);
-		break;
 
-	case LIGHT_FLASH_NONE:
+		// notification LED
+		write_int ("/sys/class/leds/button-backlight/brightness", 255);
+		write_string ("/sys/class/leds/button-backlight/trigger", "timer");
+		write_int("/sys/class/leds/button-backlight/delay_on", delayOn);
+		write_int("/sys/class/leds/button-backlight/delay_off", delayOff);
+
+	} else {
 		write_string (RED_LED_FILE_TRIGGER, "none");
 		write_string (GREEN_LED_FILE_TRIGGER, "none");
 		write_string (BLUE_LED_FILE_TRIGGER, "none");
-		break;
+
+		// notification LED
+		write_string ("/sys/class/leds/button-backlight/trigger", "none");
+		// dynamic linking
+		int back = read_int(LCD_BACKLIGHT_FILE);
+		write_int ("/sys/class/leds/button-backlight/brightness", back);
+
 	}
 
 	write_int (RED_LED_FILE, r);
 	write_int (GREEN_LED_FILE, g);
 	write_int (BLUE_LED_FILE, b);
+
 }
 
 static void handle_shared_battery_locked (struct light_device_t *dev) {
@@ -237,8 +287,8 @@ static int open_lights (const struct hw_module_t* module, char const* name,
 	struct light_device_t *dev = malloc(sizeof (struct light_device_t));
 	memset(dev, 0, sizeof(*dev));
 
-	dev->common.tag		= HARDWARE_DEVICE_TAG;
-	dev->common.version	= 0;
+	dev->common.tag 	= HARDWARE_DEVICE_TAG;
+	dev->common.version = 0;
 	dev->common.module 	= (struct hw_module_t*)module;
 	dev->common.close 	= (int (*)(struct hw_device_t*))close_lights;
 	dev->set_light 		= set_light;
@@ -253,11 +303,11 @@ static struct hw_module_methods_t lights_module_methods = {
 
 
 struct hw_module_t HAL_MODULE_INFO_SYM = {
-	.tag		= HARDWARE_MODULE_TAG,
-	.version_major	= 1,
-	.version_minor	= 0,
-	.id		= LIGHTS_HARDWARE_MODULE_ID,
-	.name		= "Sony lights module",
-	.author		= "Diogo Ferreira <defer@cyanogenmod.com>, Andreas Makris <Andreas.Makris@gmail.com>",
-	.methods	= &lights_module_methods,
+	.tag = HARDWARE_MODULE_TAG,
+	.version_major = 1,
+	.version_minor = 0,
+	.id = LIGHTS_HARDWARE_MODULE_ID,
+	.name = "Sony lights module",
+	.author = "Diogo Ferreira <defer@cyanogenmod.com>, Andreas Makris <Andreas.Makris@gmail.com>, Christopher N. Hesse <raymanfx@gmail.com>",
+	.methods = &lights_module_methods,
 };
