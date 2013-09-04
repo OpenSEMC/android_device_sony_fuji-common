@@ -20,6 +20,13 @@ uncompressed_ramdisk := $(PRODUCT_OUT)/ramdisk.cpio
 $(uncompressed_ramdisk): $(INSTALLED_RAMDISK_TARGET)
 	zcat $< > $@
 
+recovery_uncompressed_ramdisk := device/sony/fuji-common/prebuilt/ramdisk-recovery.cpio
+recovery_ramdisk := $(PRODUCT_OUT)/recovery-ramdisk.img
+$(recovery_ramdisk): $(MKBOOTFS) \
+	$(recovery_uncompressed_ramdisk)
+	@echo ----- Making recovery ramdisk ------
+	$(MINIGZIP) < $(recovery_uncompressed_ramdisk) > $@
+
 MKELF := device/sony/fuji-common/tools/mkelf.py
 INITSH := device/sony/fuji-common/combinedroot/init.sh
 BOOTREC_DEVICE := $(PRODUCT_OUT)/recovery/bootrec-device
