@@ -243,6 +243,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.mdpcomp.maxlayer=0 \
     debug.mdpcomp.logs=0
 
+#MR2
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bq.gpu_to_cpu_unsupported=1
+
 # More display props - double check these!
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    dev.pm.dyn_samplingrate=1 \
