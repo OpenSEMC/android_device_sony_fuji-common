@@ -50,9 +50,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/rootdir/system/etc/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh
 
-# Common Fuji media codecs
+# Common Fuji media configs
 PRODUCT_COPY_FILES += \
-    device/sony/fuji-common/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml
+    device/sony/fuji-common/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
+    device/sony/fuji-common/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 # QCOM Display
 PRODUCT_PACKAGES += \
