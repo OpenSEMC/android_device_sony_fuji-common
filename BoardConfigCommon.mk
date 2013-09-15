@@ -98,8 +98,12 @@ TARGET_QCOM_DISPLAY_VARIANT := legacy
 TARGET_QCOM_HDMI_RESOLUTION_AUTO := true
 TARGET_USES_ION := true
 TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_POST_PROCESSING := true
 #TARGET_NO_HW_VSYNC := true
 USE_OPENGL_RENDERER := true
+
+# QCOM_BSP
+TARGET_USES_QCOM_BSP := true
 
 # EGL
 BOARD_EGL_CFG := device/sony/fuji-common/rootdir/system/lib/egl/egl.cfg
