@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Board specific headers
+TARGET_SPECIFIC_HEADER_PATH := device/sony/fuji-common/include
+
 # inherit from Sony common
 -include device/sony/common/BoardConfigCommon.mk
 
