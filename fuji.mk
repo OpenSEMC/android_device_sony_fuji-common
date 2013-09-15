@@ -70,7 +70,7 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libqdutils
 
-# Omx
+# OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libdivxdrmdecrypt \
@@ -83,6 +83,7 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libOmxQcelp13Enc \
     libOmxEvrcEnc \
+    libv8 \
     libOmxAmrEnc
 
 # NFC Support
@@ -242,7 +243,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.enabletr=true \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
-    debug.composition.type=dyn \
     dev.pm.dyn_samplingrate=1 \
     debug.mdpcomp.maxlayer=0 \
     debug.mdpcomp.logs=0
@@ -252,9 +252,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bq.gpu_to_cpu_unsupported=1
 
 # More display props - double check these!
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    dev.pm.dyn_samplingrate=1 \
-#    debug.hwc.dynThreshold=1.9
+PRODUCT_PROPERTY_OVERRIDES += \
+    dev.pm.dyn_samplingrate=1 \
+    debug.hwc.dynThreshold=1.9
 
 # Low Power Audio Decoding
 #PRODUCT_PROPERTY_OVERRIDES += \
