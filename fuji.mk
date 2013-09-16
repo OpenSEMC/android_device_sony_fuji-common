@@ -241,6 +241,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
     dev.pm.dyn_samplingrate=1 \
+    debug.composition.type=gpu \
     debug.mdpcomp.maxlayer=0 \
     debug.mdpcomp.logs=0
 
