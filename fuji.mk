@@ -39,11 +39,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
-
-# VoIP
-#PRODUCT_COPY_FILES += \
-#    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # WiFi direct (P2P)
 #PRODUCT_COPY_FILES += \
@@ -60,30 +57,27 @@ PRODUCT_COPY_FILES += \
 
 # QCOM Display
 PRODUCT_PACKAGES += \
-    copybit.msm8660 \
-    gralloc.msm8660 \
-    hwcomposer.msm8660 \
     libgenlock \
-    libhwcexternal \
-    libhwcservice \
     libmemalloc \
     liboverlay \
-    libqdutils
+    libqdutils \
+    libtilerenderer \
+    libI420colorconvert
 
 # Omx
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libmm-omxcore \
-    libOmxCore \
-    libOmxVdec \
-    libOmxVenc \
     libOmxAacEnc \
     libOmxAmrEnc \
-    libstagefrighthw \
-    libOmxQcelp13Enc \
+    libOmxCore \
     libOmxEvrcEnc \
-    libOmxAmrEnc
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libc2dcolorconvert \
+    libdashplayer \
+    libdivxdrmdecrypt \
+    libmm-omxcore \
+    libstagefrighthw
 
 # NFC Support
 PRODUCT_PACKAGES += \
@@ -182,8 +176,8 @@ PRODUCT_COPY_FILES += \
     device/sony/fuji-common/rootdir/system/etc/thermald-semc.conf:system/etc/thermald-semc.conf
 
 # Xperia Settings (sony-common)
-PRODUCT_PACKAGES += \
-    XperiaSettings
+#PRODUCT_PACKAGES += \
+#    XperiaSettings
 
 # Extract recovery ramdisks (sony-common)
 PRODUCT_PACKAGES += \
@@ -239,12 +233,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.enabletr=true \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
+    persist.hwc.mdpcomp.enable=true \
     debug.composition.type=dyn \
-    dev.pm.dyn_samplingrate=1 \
-    debug.mdpcomp.maxlayer=0 \
+    debug.mdpcomp.maxlayer=3 \
     debug.mdpcomp.logs=0
 
 #MR2
@@ -252,9 +245,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bq.gpu_to_cpu_unsupported=1
 
 # More display props - double check these!
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    dev.pm.dyn_samplingrate=1 \
-#    debug.hwc.dynThreshold=1.9
+PRODUCT_PROPERTY_OVERRIDES += \
+    dev.pm.dyn_samplingrate=1 \
+    debug.hwc.dynThreshold=1.9
 
 # Low Power Audio Decoding
 #PRODUCT_PROPERTY_OVERRIDES += \
@@ -266,4 +259,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.supplicant_scan_interval=15
 
 # Include non-opensource parts if available
-$(call inherit-product-if-exists, vendor/sony/fuji-common/fuji-common-vendor.mk)
+$(call inherit-product-if-exists, vendor/sony/fuji-common-caf/fuji-common-vendor.mk)

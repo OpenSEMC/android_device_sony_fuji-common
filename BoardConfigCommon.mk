@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Board specific headers - killed as of MR1
+#TARGET_SPECIFIC_HEADER_PATH := device/sony/fuji-common/include
+
 # inherit from Sony common
 -include device/sony/common/BoardConfigCommon.mk
 
@@ -93,13 +96,18 @@ BOARD_QCOM_TUNNEL_LPA_ENABLED := false
 #BOARD_USE_QCOM_LPA := true
 
 # Graphics
-BOARD_EGL_NEEDS_LEGACY_FB := true
-TARGET_QCOM_DISPLAY_VARIANT := legacy
-TARGET_QCOM_HDMI_RESOLUTION_AUTO := true
+TARGET_QCOM_DISPLAY_VARIANT := caf
+TARGET_QCOM_MEDIA_VARIANT := caf
 TARGET_USES_ION := true
+TARGET_HAS_OLD_QCOM_ION := true
 TARGET_USES_C2D_COMPOSITION := true
-#TARGET_NO_HW_VSYNC := true
 USE_OPENGL_RENDERER := true
+
+# QCOM enhanced A/V
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+
+# Use retire fence from MDP driver
+TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
 # EGL
 BOARD_EGL_CFG := device/sony/fuji-common/rootdir/system/lib/egl/egl.cfg
