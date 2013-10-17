@@ -110,6 +110,9 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 # Use retire fence from MDP driver
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
+# Insecure heap
+TARGET_DISPLAY_INSECURE_MM_HEAP := true
+
 # EGL
 BOARD_EGL_CFG := device/sony/fuji-common/rootdir/system/lib/egl/egl.cfg
 
