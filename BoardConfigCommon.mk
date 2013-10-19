@@ -15,7 +15,7 @@
 #
 
 # Board specific headers - killed as of MR1
-#TARGET_SPECIFIC_HEADER_PATH := device/sony/fuji-common/include
+TARGET_SPECIFIC_HEADER_PATH := device/sony/fuji-common/include
 
 # inherit from Sony common
 -include device/sony/common/BoardConfigCommon.mk
@@ -93,21 +93,16 @@ BOARD_QCOM_TUNNEL_LPA_ENABLED := false
 
 # Graphics
 COMMON_GLOBAL_CFLAGS += -DNUM_FB_DEVICES=2
-TARGET_QCOM_DISPLAY_VARIANT := caf
-#TARGET_QCOM_MEDIA_VARIANT := caf
+TARGET_QCOM_DISPLAY_VARIANT := legacy
+TARGET_QCOM_MEDIA_VARIANT := legacy
 TARGET_USES_ION := true
-TARGET_HAS_OLD_QCOM_ION := true
+TARGET_USES_OVERLAY := true
+TARGET_USES_SF_BYPASS := true
 TARGET_USES_C2D_COMPOSITION := true
 USE_OPENGL_RENDERER := true
 
 # QCOM enhanced A/V
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-
-# Use retire fence from MDP driver
-TARGET_DISPLAY_USE_RETIRE_FENCE := true
-
-# Insecure heap
-TARGET_DISPLAY_INSECURE_MM_HEAP := true
+#TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # EGL
 BOARD_EGL_CFG := device/sony/fuji-common/rootdir/system/lib/egl/egl.cfg
