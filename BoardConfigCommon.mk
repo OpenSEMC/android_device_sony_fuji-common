@@ -47,11 +47,7 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := scorpion
-
 TARGET_BOOTLOADER_BOARD_NAME := fuji
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_VARIANT := cortex-a9
 TARGET_VENDOR_PLATFORM := fuji
 
 # Flags
@@ -109,6 +105,9 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Use retire fence from MDP driver
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
+
+# Insecure heap
+TARGET_DISPLAY_INSECURE_MM_HEAP := true
 
 # EGL
 BOARD_EGL_CFG := device/sony/fuji-common/rootdir/system/lib/egl/egl.cfg
