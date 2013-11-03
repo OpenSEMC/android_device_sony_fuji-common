@@ -168,7 +168,7 @@
             <Video codec="h264"
                    bitRate="20000000"
                    width="1920"
-                   height="1088"
+                   height="1080"
                    frameRate="30" />
             <Audio codec="aac"
                    bitRate="96000"
@@ -232,7 +232,7 @@
             <Video codec="h264"
                    bitRate="20000000"
                    width="1920"
-                   height="1088"
+                   height="1080"
                    frameRate="30" />
             <!-- audio setting is ignored -->
             <Audio codec="aac"
