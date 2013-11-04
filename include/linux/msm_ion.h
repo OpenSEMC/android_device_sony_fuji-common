@@ -1,7 +1,8 @@
 /*
  * include/linux/ion.h
  *
- * Copyright (c) 2012, Code Aurora Forum. All rights reserved.
+ * Copyright (C) 2011 Google, Inc.
+ * Copyright (c) 2011-2012, Code Aurora Forum. All rights reserved.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -14,9 +15,4 @@
  *
  */
 
-#ifndef _LINUX_MSM_ION_H
-#define _LINUX_MSM_ION_H
-
 #include <linux/ion.h>
-
-#endif
