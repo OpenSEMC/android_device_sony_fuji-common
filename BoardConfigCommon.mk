@@ -167,33 +167,29 @@ BOARD_SEPOLICY_DIRS += \
     device/sony/fuji-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-    file_contexts \
-    property_contexts \
-    te_macros \
-    bridge.te \
-    camera.te \
-    conn_init.te \
+    app.te \
+    bluetooth.te \
     device.te \
-    dhcp.te \
     domain.te \
     drmserver.te \
+    file_contexts \
+    files \
     file.te \
-    kickstart.te \
+    hci_init.te \
+    healthd.te \
     init.te \
+    init_shell.te \
+    keystore.te \
+    kickstart.te \
     mediaserver.te \
-    mpdecision.te \
-    netmgrd.te \
-    property.te \
-    qmux.te \
     rild.te \
-    rmt.te \
-    sensors.te \
     surfaceflinger.te \
     system.te \
-    tee.te \
-    thermald.te \
     ueventd.te \
-    wpa_supplicant.te
+    untrusted_app.te \
+    vold.te \
+    wpa.te \
+    wpa_socket.te
 
 # inherit from fuji-common
 -include vendor/sony/fuji-common/BoardConfigCommon.mk
