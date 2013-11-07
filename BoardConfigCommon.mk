@@ -101,17 +101,17 @@ TARGET_HAS_OLD_QCOM_ION := true
 TARGET_USES_C2D_COMPOSITION := true
 USE_OPENGL_RENDERER := true
 
-# Camera blobs
-FUJI_USE_0_211_CAMERA_BLOBS := true
-
-# QCOM enhanced A/V
-#TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-
 # Use retire fence from MDP driver
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
 # Insecure heap
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
+
+# Use reserved fields for fps
+TARGET_DISPLAY_USE_RESERVED_FIELDS := true
+
+# QCOM enhanced A/V
+#TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # EGL
 BOARD_EGL_CFG := device/sony/fuji-common/rootdir/system/lib/egl/egl.cfg
