@@ -30,9 +30,9 @@ busybox mount -t sysfs sysfs /sys
 busybox mount -t ext4 ${BOOTREC_CACHE} /cache
 
 # trigger amber LED
-busybox echo 255 > ${BOOTREC_LED_RED}
+busybox echo 0 > ${BOOTREC_LED_RED}
 busybox echo 0 > ${BOOTREC_LED_GREEN}
-busybox echo 255 > ${BOOTREC_LED_BLUE}
+busybox echo 22 > ${BOOTREC_LED_BLUE}
 
 # keycheck
 busybox cat ${BOOTREC_EVENT} > /dev/keycheck&
