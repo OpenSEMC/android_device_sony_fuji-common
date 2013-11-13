@@ -134,6 +134,9 @@ BOARD_USES_QCOM_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := semc
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
+# Board Specific Telephony RIL
+BOARD_RIL_CLASS := ../../../device/sony/fuji-common/ril/telephony/java/com/android/internal/telephony/SonyQualcommRIL.java
+
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
