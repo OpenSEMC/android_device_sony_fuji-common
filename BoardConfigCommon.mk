@@ -44,10 +44,11 @@ BOARD_VENDOR := sony
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH_VARIANT_CPU := cortex-a8
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
-TARGET_CPU_VARIANT := cortex-a9
+TARGET_CPU_VARIANT := cortex-a8
 TARGET_BOOTLOADER_BOARD_NAME := fuji
 TARGET_VENDOR_PLATFORM := fuji
 
