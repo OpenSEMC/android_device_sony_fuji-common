@@ -259,7 +259,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Low Power Audio Decoding
 #PRODUCT_PROPERTY_OVERRIDES += \
-#    lpa.decode=true
+    lpa.decode=false
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
