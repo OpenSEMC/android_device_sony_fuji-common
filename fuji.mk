@@ -155,7 +155,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio policy config
 PRODUCT_COPY_FILES += \
-    device/sony/fuji-common/config/audio_policy.conf:system/etc/audio_policy.conf
+    device/sony/fuji-common/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf
 
 # Post recovery script
 PRODUCT_COPY_FILES += \
