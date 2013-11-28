@@ -72,6 +72,9 @@ BOARD_KERNEL_BASE := 0x40200000
 BOARD_RECOVERY_BASE := 0x40200000
 BOARD_KERNEL_PAGESIZE := 2048
 
+# RIL
+BOARD_RIL_CLASS := ../../../device/sony/fuji-common/ril/telephony/java/com/android/internal/telephony/SonyQualcommRIL.java
+
 # Wifi related defines
 BOARD_WLAN_DEVICE                := bcmdhd
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
