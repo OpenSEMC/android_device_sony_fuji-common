@@ -66,6 +66,9 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
 # Compiler Optimization
 ARCH_ARM_HIGH_OPTIMIZATION := true
 
+# Compiler Optimization
+ARCH_ARM_HIGH_OPTIMIZATION := true
+
 # Kernel information
 BOARD_KERNEL_CMDLINE := # This is ignored by sony's bootloader
 BOARD_KERNEL_BASE := 0x40200000
