@@ -164,7 +164,8 @@ PRODUCT_COPY_FILES += \
 
 # Post recovery script
 PRODUCT_COPY_FILES += \
-    device/sony/fuji-common/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
+    device/sony/fuji-common/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
+    device/sony/fuji-common/recovery/rebootrecovery.sh:recovery/root/sbin/rebootrecovery.sh
 
 # CNE config
 PRODUCT_COPY_FILES += \
