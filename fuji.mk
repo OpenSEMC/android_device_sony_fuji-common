@@ -14,11 +14,16 @@
 # limitations under the License.
 #
 
+# Inherit the temporary definitions
+$(call inherit-product, device/sony/fuji-common/temporary.mk)
+
+# Get all the languages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
+# Fuji-common overlays
 DEVICE_PACKAGE_OVERLAYS += device/sony/fuji-common/overlay
 
 # Permissions
