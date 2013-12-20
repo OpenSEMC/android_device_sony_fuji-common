@@ -169,6 +169,10 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_REAL_SDCARD := true
 TW_NO_USB_STORAGE := true
 
+# Health Daemon
+BOARD_BATTERY_DEVICE_NAME := "semc_battery_data"
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.fuji
+
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/sony/fuji-common/sepolicy
