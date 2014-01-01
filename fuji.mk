@@ -63,27 +63,20 @@ PRODUCT_PACKAGES += \
     copybit.msm8660 \
     gralloc.msm8660 \
     hwcomposer.msm8660 \
+    memtrack.msm8660 \
     libgenlock \
     libmemalloc \
     liboverlay \
-    libqdutils \
-    libtilerenderer \
-    libI420colorconvert
+    libqdutils
 
 # Omx
 PRODUCT_PACKAGES += \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
+    libdivxdrmdecrypt \
     libOmxVdec \
     libOmxVenc \
-    libc2dcolorconvert \
-    libdashplayer \
-    libdivxdrmdecrypt \
-    libmm-omxcore \
-    libstagefrighthw
+    libOmxCore \
+    libstagefrighthw \
+    libc2dcolorconvert
 
 # NFC Support
 PRODUCT_PACKAGES += \
@@ -111,9 +104,10 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio_policy.msm8660 \
     audio.primary.msm8660 \
+    audio.r_submix.default \
+    audio.usb.default \
     libaudio-resampler \
     libaudioutils
-    #audio_policy.conf
 
 # DASH
 PRODUCT_PACKAGES += \
