@@ -87,6 +87,7 @@ PRODUCT_PACKAGES += \
 
 # NFC Support
 PRODUCT_PACKAGES += \
+    nfc.msm8660 \
     libnfc \
     libnfc_jni \
     Nfc \
@@ -122,12 +123,11 @@ PRODUCT_PACKAGES += \
     libmpl
 
 PRODUCT_COPY_FILES += \
-   device/sony/fuji-common/rootdir/system/etc/sensors.conf:system/etc/sensors.conf
+    device/sony/fuji-common/rootdir/system/etc/sensors.conf:system/etc/sensors.conf
 
 # GPS
-PRODUCT_PACKAGES += \
-    gps.msm8660 \
-    librpc
+PRODUCT_COPY_FILES += \
+    device/sony/fuji-common/rootdir/system/etc/gps.conf:system/etc/gps.conf
 
 # Light
 PRODUCT_PACKAGES += \
@@ -137,11 +137,23 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libbt-vendor \
     libbluedroid \
-    brcm_patchram_plus
+    brcm_patchram_plus \
+    bt_vendor.conf
 
 # Bluetooth vendor config
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+
+# Wifi
+PRODUCT_PACKAGES += \
+    libnetcmdiface
+
+# WiFi config
+PRODUCT_COPY_FILES += \
+    device/sony/fuji-common/rootdir/system/etc/calibration:system/etc/wifi/calibration
+
+WIFI_BAND := 802_11_BG
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
 
 # Power HAL
 PRODUCT_PACKAGES += \
