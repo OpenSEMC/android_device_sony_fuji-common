@@ -23,6 +23,8 @@ DEVICE_PACKAGE_OVERLAYS += device/sony/fuji-common/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
@@ -37,14 +39,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
-
-# WiFi direct (P2P)
-#PRODUCT_COPY_FILES += \
-#    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
@@ -54,6 +53,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/sony/fuji-common/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml
+
+# Random stuff
+PRODUCT_COPY_FILES += \
+    device/sony/fuji-common/rootdir/system/etc/qosmgr_rules.xml:system/etc/qosmgr_rules.xml
 
 # QCOM Display
 PRODUCT_PACKAGES += \
@@ -164,7 +167,8 @@ PRODUCT_COPY_FILES += \
 
 # Audio policy config
 PRODUCT_COPY_FILES += \
-    device/sony/fuji-common/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf
+    device/sony/fuji-common/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    device/sony/fuji-common/rootdir/system/etc/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # Post recovery script
 PRODUCT_COPY_FILES += \
@@ -212,7 +216,7 @@ PRODUCT_COPY_FILES += \
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb
+    persist.sys.usb.config=mtp
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
