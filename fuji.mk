@@ -114,6 +114,16 @@ PRODUCT_PACKAGES += \
     libaudioutils
     #audio_policy.conf
 
+# DASH
+PRODUCT_PACKAGES += \
+    sensors.msm8660 \
+    libmlplatform \
+    libmllite \
+    libmpl
+
+PRODUCT_COPY_FILES += \
+   device/sony/fuji-common/rootdir/system/etc/sensors.conf:system/etc/sensors.conf
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8660 \
