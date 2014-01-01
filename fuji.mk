@@ -282,9 +282,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
-    persist.hwc.mdpcomp.enable=true \
+    persist.hwc.mdpcomp.enable=1 \
     debug.composition.type=dyn \
     debug.mdpcomp.maxlayer=3 \
+    debug.mdpcomp.maxpermixer=3 \
+    debug.mdpcomp.idletime=-1 \
     debug.mdpcomp.logs=0
 
 #MR2
@@ -299,6 +301,28 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Low Power Audio Decoding
 #PRODUCT_PROPERTY_OVERRIDES += \
     lpa.decode=false
+
+# Props from billchen1977
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.audio.fluence.mode=endfire \
+    persist.audio.vr.enable=false \
+    persist.audio.hp=true \
+    af.resampler.quality=3 \
+    use.non-omx.mp3.decoder=true \
+    lpa.use-stagefright=true \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-fma2dp=false \
+    media.stagefright.enable-aac=true \
+    media.stagefright.enable-qcp=true \
+    media.stagefright.enable-scan=true \
+    encoder.video.profile=high \
+    mmp.enable.3g2=true \
+    ro.nfc.on.default=false \
+    ro.nfc.se.sim.enable=true \
+    ro.nfc.se.smx.enable=true \
+    ro.nfc.icon.enable=true \
+    ro.nfc.vendor.name=nxp
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
