@@ -111,9 +111,10 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio_policy.msm8660 \
     audio.primary.msm8660 \
+    audio.r_submix.default \
+    audio.usb.default \
     libaudio-resampler \
     libaudioutils
-    #audio_policy.conf
 
 # DASH
 PRODUCT_PACKAGES += \
