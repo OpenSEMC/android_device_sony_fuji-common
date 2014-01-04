@@ -65,9 +65,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8660 \
     memtrack.msm8660 \
     libgenlock \
-    libmemalloc \
-    liboverlay \
-    libqdutils
+    liboverlay
 
 # Omx
 PRODUCT_PACKAGES += \
