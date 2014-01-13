@@ -60,30 +60,21 @@ PRODUCT_COPY_FILES += \
 
 # QCOM Display
 PRODUCT_PACKAGES += \
-    copybit.msm8660 \
-    gralloc.msm8660 \
-    hwcomposer.msm8660 \
     libgenlock \
-    libmemalloc \
     liboverlay \
-    libqdutils \
-    libtilerenderer \
-    libI420colorconvert
+    hwcomposer.msm8660 \
+    gralloc.msm8660 \
+    memtrack.msm8660 \
+    copybit.msm8660
 
 # Omx
 PRODUCT_PACKAGES += \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
+    libdivxdrmdecrypt \
     libOmxVdec \
     libOmxVenc \
-    libc2dcolorconvert \
-    libdashplayer \
-    libdivxdrmdecrypt \
-    libmm-omxcore \
-    libstagefrighthw
+    libOmxCore \
+    libstagefrighthw \
+    libc2dcolorconvert
 
 # NFC Support
 PRODUCT_PACKAGES += \
@@ -108,13 +99,12 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio_policy.msm8660 \
+PRODUCT_PACKAGES += \
     audio.primary.msm8660 \
-    audio.r_submix.default \
+    audio.a2dp.default \
     audio.usb.default \
-    libaudio-resampler \
-    libaudioutils
+    audio.r_submix.default \
+    libaudio-resampler
 
 # DASH
 PRODUCT_PACKAGES += \
@@ -289,7 +279,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=1 \
     debug.sf.hw=1 \
-    persist.hwc.mdpcomp.enable=true \
+    persist.hwc.mdpcomp.enable=1 \
     debug.composition.type=dyn \
     debug.mdpcomp.maxlayer=3 \
     debug.mdpcomp.logs=0
@@ -300,8 +290,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # More display props - double check these!
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.mdpcomp.idletime=-1 \
     dev.pm.dyn_samplingrate=1 \
     debug.hwc.dynThreshold=1.9
+
+# Moar props
+PRODUCT_PROPERTY_OVERRIDES += \
+    use.non-omx.mp3.decoder=true \
+    lpa.use-stagefright=true \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-fma2dp=false \
+    media.stagefright.enable-aac=true \
+    media.stagefright.enable-qcp=true \
+    media.stagefright.enable-scan=true \
+    encoder.video.profile=high \
+    mmp.enable.3g2=true \
+    persist.audio.fluence.mode=endfire \
+    persist.audio.vr.enable=false \
+    persist.audio.hp=true \
+    af.resampler.quality=3
 
 # Low Power Audio Decoding
 #PRODUCT_PROPERTY_OVERRIDES += \
@@ -313,4 +321,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.supplicant_scan_interval=15
 
 # Include non-opensource parts if available
-$(call inherit-product-if-exists, vendor/sony/fuji-common-caf/fuji-common-vendor.mk)
+$(call inherit-product-if-exists, vendor/sony/fuji-common-htcge/fuji-common-vendor.mk)

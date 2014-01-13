@@ -15,7 +15,7 @@
 #
 
 # Board specific headers
-TARGET_SPECIFIC_HEADER_PATH := device/sony/fuji-common/include
+#TARGET_SPECIFIC_HEADER_PATH := device/sony/fuji-common/include
 
 # inherit from Sony common
 -include device/sony/common/BoardConfigCommon.mk
@@ -88,34 +88,14 @@ WIFI_DRIVER_FW_PATH_AP      := "/system/vendor/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P     := "/system/vendor/firmware/fw_bcmdhd.bin"
 
 # Audio
-TARGET_QCOM_AUDIO_VARIANT := caf
-COMMON_GLOBAL_CFLAGS += -DQCOM_ACDB_ENABLED -DQCOM_VOIP_ENABLED
-BOARD_HAVE_SONY_AUDIO := true
-BOARD_HAVE_BACK_MIC_CAMCORDER := true
-BOARD_QCOM_TUNNEL_LPA_ENABLED := false
-#BOARD_USE_QCOM_LPA := true
-BOARD_USES_LEGACY_ALSA_AUDIO := true
+BOARD_USES_ALSA_AUDIO := true
 
 # Graphics
-COMMON_GLOBAL_CFLAGS += -DNUM_FB_DEVICES=2 -DSCREENSHOT_CLIENT_STRIDE_HACK
-TARGET_QCOM_DISPLAY_VARIANT := caf
-#TARGET_QCOM_MEDIA_VARIANT := caf
 TARGET_USES_ION := true
-TARGET_HAS_OLD_QCOM_ION := true
+TARGET_USES_OVERLAY := true
+TARGET_USES_SF_BYBASS := true
 TARGET_USES_C2D_COMPOSITION := true
 USE_OPENGL_RENDERER := true
-
-# Use retire fence from MDP driver
-TARGET_DISPLAY_USE_RETIRE_FENCE := true
-
-# Insecure heap
-TARGET_DISPLAY_INSECURE_MM_HEAP := true
-
-# Use reserved fields for fps
-TARGET_DISPLAY_USE_RESERVED_FIELDS := true
-
-# QCOM enhanced A/V
-#TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # EGL
 BOARD_EGL_CFG := device/sony/fuji-common/rootdir/system/lib/egl/egl.cfg
