@@ -199,7 +199,7 @@ PRODUCT_COPY_FILES += \
 
 # Boot Logo
 PRODUCT_COPY_FILES += \
-     device/sony/fuji-common/bootlogo/OpenSEMC2.rle:root/logo.rle
+     device/sony/fuji-common/bootlogo/logo_sony_720x1280.rle:root/logo.rle
 
 # Extract recovery ramdisks
 PRODUCT_PACKAGES += \
@@ -238,9 +238,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #### Goo Manager support
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.goo.developerid=RaymanFX \
+    ro.goo.developerid=deedwar \
     ro.goo.board=$(subst full_,,$(TARGET_PRODUCT)) \
-    ro.goo.rom=opensemc_cm \
+    ro.goo.rom=beanstalk \
     ro.goo.version=$(shell date +%s)
 
 # QCOM
