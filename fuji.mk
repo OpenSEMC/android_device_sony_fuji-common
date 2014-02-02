@@ -265,7 +265,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=true \
     debug.composition.type=dyn \
     debug.mdpcomp.maxlayer=3 \
-    debug.mdpcomp.logs=0
+    debug.mdpcomp.logs=0 \
+    debug.egl.recordable.rgba8888=1
 
 #MR2
 PRODUCT_PROPERTY_OVERRIDES += \
