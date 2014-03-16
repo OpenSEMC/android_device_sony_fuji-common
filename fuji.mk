@@ -210,10 +210,6 @@ PRODUCT_COPY_FILES += \
     device/sony/fuji-common/rootdir/system/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     device/sony/fuji-common/rootdir/system/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
-# Set default USB interface
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb
-
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=SonyQualcommRIL \
