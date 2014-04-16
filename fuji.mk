@@ -232,6 +232,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.use_data_netmgrd=true \
     ro.ril.transmitpower=true
 
+# USB Debugging
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.secure=0 \
+    ro.debuggable=1 \
+    persist.service.adb.enable=1 \
+    persist.sys.usb.config=mtp,adb
+
 #### Goo Manager support
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.developerid=RaymanFX \
