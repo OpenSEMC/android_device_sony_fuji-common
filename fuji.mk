@@ -112,8 +112,8 @@ PRODUCT_PACKAGES += \
     #audio_policy.conf
 
 # Camera wrapper
-PRODUCT_PACKAGES += \
-    camera.fuji
+#PRODUCT_PACKAGES += \
+#    camera.fuji
 
 # GPS
 PRODUCT_PACKAGES += \

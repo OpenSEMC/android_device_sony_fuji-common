@@ -72,9 +72,9 @@ BOARD_RECOVERY_BASE := 0x40200000
 BOARD_KERNEL_PAGESIZE := 2048
 
 # RIL
-BOARD_PROVIDES_LIBRIL := true
-BOARD_RIL_NO_CELLINFOLIST := true
-BOARD_USES_QCOM_RIL_RESPONSE_5_ELEMENTS := true
+#BOARD_PROVIDES_LIBRIL := true
+#BOARD_RIL_NO_CELLINFOLIST := true
+#BOARD_USES_QCOM_RIL_RESPONSE_5_ELEMENTS := true
 BOARD_RIL_CLASS := ../../../device/sony/fuji-common/ril/telephony/java/com/android/internal/telephony/SonyQualcommRIL.java
 
 # Wifi related defines
