@@ -17,7 +17,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_eu_supl.mk)
+PRODUCT_COPY_FILES := \
+    device/sony/fuji-common/rootdir/system/etc/gps.conf_EU_SUPL:system/etc/gps.conf
 
 DEVICE_PACKAGE_OVERLAYS += device/sony/fuji-common/overlay
 
