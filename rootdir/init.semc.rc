@@ -460,6 +460,17 @@ on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
     stop netmgrd
 
+service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+    class main
+    user root
+    disabled
+
+service thermald /system/bin/thermald -c /system/etc/thermald-semc.conf
+    class main
+    socket thermald stream 0666 root root
+    user root
+    disabled
+
 service qrngd /system/bin/qrngd -f
     class late_start
     user root
@@ -468,6 +479,10 @@ service qseecomd /system/bin/qseecomd
     class late_start
     user system
     group system
+
+on property:init.svc.bootanim=stopped
+    start mpdecision
+    start thermald
 
 service nvcustomizer /system/bin/nvcustomizer
     user root

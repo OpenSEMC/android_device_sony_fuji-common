@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The OpenSEMC Project
+<!-- Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,13 +13,10 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <resources>
 
-    <!-- Enable focus mode selection -->
-    <bool name="wantsFocusModes">true</bool>
+    <string name="videoHdrParam">sony-video-hdr</string>
 
-    <!-- HDR Video -->
-    <bool name="enableVideoHDR">true</bool>
+    <bool name="enableShutterSpeed">true</bool>
 
 </resources>

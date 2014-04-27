@@ -47,7 +47,7 @@ TARGET_ARCH_VARIANT_CPU := cortex-a8
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
-TARGET_CPU_VARIANT := cortex-a8
+TARGET_CPU_VARIANT := scorpion
 TARGET_BOOTLOADER_BOARD_NAME := fuji
 TARGET_VENDOR_PLATFORM := fuji
 
@@ -72,6 +72,9 @@ BOARD_RECOVERY_BASE := 0x40200000
 BOARD_KERNEL_PAGESIZE := 2048
 
 # RIL
+#BOARD_PROVIDES_LIBRIL := true
+#BOARD_RIL_NO_CELLINFOLIST := true
+#BOARD_USES_QCOM_RIL_RESPONSE_5_ELEMENTS := true
 BOARD_RIL_CLASS := ../../../device/sony/fuji-common/ril/telephony/java/com/android/internal/telephony/SonyQualcommRIL.java
 
 # Wifi related defines
@@ -101,7 +104,6 @@ COMMON_GLOBAL_CFLAGS += -DNUM_FB_DEVICES=2 -DSCREENSHOT_CLIENT_STRIDE_HACK
 TARGET_QCOM_DISPLAY_VARIANT := caf
 #TARGET_QCOM_MEDIA_VARIANT := caf
 TARGET_USES_ION := true
-TARGET_HAS_OLD_QCOM_ION := true
 TARGET_USES_C2D_COMPOSITION := true
 USE_OPENGL_RENDERER := true
 
@@ -124,9 +126,6 @@ BOARD_EGL_CFG := device/sony/fuji-common/rootdir/system/lib/egl/egl.cfg
 TARGET_PROVIDES_LIBLIGHT := true
 # Legacy define
 TARGET_PROVIDES_LIBLIGHTS := true
-
-# Power HAL
-TARGET_USES_CM_POWERHAL := true
 
 # CM Hardware Class
 BOARD_HARDWARE_CLASS := hardware/sony/cmhw
