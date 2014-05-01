@@ -24,12 +24,6 @@
     <!-- Default color for notification LED is white. -->
     <color name="config_defaultNotificationColor">#ffffffff</color>
 
-    <!-- Default LED on time for notification LED in milliseconds. -->
-    <integer name="config_defaultNotificationLedOn">1000</integer>
-
-    <!-- Default LED off time for notification LED in milliseconds. -->
-    <integer name="config_defaultNotificationLedOff">9000</integer>
-
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
@@ -86,17 +80,17 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>90</item>
+        <item>113</item>
+        <item>125</item>
+        <item>140</item>
+        <item>182</item>
+        <item>220</item>
         <item>255</item>
         <item>255</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
     <!-- Array of output values for keyboard backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
@@ -176,8 +170,6 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
-    <!--<bool name="config_autoBrightnessButtonKeyboard">false</bool> -->
-
     <bool name="config_ui_enableFadingMarquee">true</bool>
     
     <!-- Enable Google Network Location Services -->
@@ -215,6 +207,7 @@
             32 - Camera
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">39</integer>
+    <integer name="config_deviceHardwareKeys">7</integer>
 
+    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
 </resources>
