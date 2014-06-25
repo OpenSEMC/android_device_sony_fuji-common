@@ -86,18 +86,23 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>70</item>
+        <item>93</item>
+        <item>105</item>
+        <item>120</item>
+        <item>162</item>
+        <item>200</item>
+        <item>236</item>
         <item>255</item>
-        <item>255</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
     </integer-array>
+
+    <integer name="config_buttonBrightnessSettingDefault">255</integer>
+
+    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
+
     <!-- Array of output values for keyboard backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
@@ -175,8 +180,6 @@
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
-
-    <!--<bool name="config_autoBrightnessButtonKeyboard">false</bool> -->
 
     <bool name="config_ui_enableFadingMarquee">true</bool>
     
